@@ -361,6 +361,7 @@
       background: radial-gradient(ellipse at top left, rgba(200,80,42,0.05) 0%, transparent 60%);
       opacity: 0;
       transition: opacity 0.3s;
+      pointer-events: none;
     }
     .project-card:hover { border-color: rgba(200,80,42,0.3); }
     .project-card:hover::before { opacity: 1; }
@@ -403,10 +404,12 @@
       letter-spacing: 0.08em;
       transition: color 0.2s;
       display: flex; align-items: center; gap: 4px;
+      position: relative;
+      z-index: 1;
     }
     .project-link:hover { color: var(--accent); }
 
-    /* SpendLens featured card — full width */
+    /* SpendLens featured card */
     .project-card-featured {
       grid-column: 1 / -1;
       background: var(--surface);
@@ -714,7 +717,7 @@
 
     <div class="exp-item reveal">
       <div class="exp-meta">
-        <div class="exp-period">May 2024 – Oct 2025</div>
+        <div class="exp-period">May 2024 – Feb 2025</div>
         <div class="exp-company">Pixel Dreams</div>
         <div class="exp-location">Hyderabad, India</div>
       </div>
@@ -804,28 +807,31 @@
         </div>
       </div>
 
+      <!-- Motif -->
       <div class="project-card reveal">
         <div class="project-num">02</div>
+        <div class="project-title">Motif</div>
+        <div class="project-desc">
+          A designer friend kept spending hours on Pinterest just to establish a visual direction before starting work. Motif shortcuts that. Type a vibe, get a creative brief with color palette, tone of voice, typography suggestions, and mood images streaming back in real time. Not a finished moodboard, just fast, opinionated visual inspo to spark the right direction.
+        </div>
+        <div class="project-stack">
+          <span>Next.js 14</span><span>TypeScript</span><span>Gemini API</span><span>Hugging Face</span><span>Vercel</span>
+        </div>
+        <div class="project-links">
+          <a class="project-link" href="https://motif-sigma.vercel.app" target="_blank" rel="noopener">Live Demo ↗</a>
+          <a class="project-link" href="https://github.com/Mithun-Srinivasa/motif" target="_blank" rel="noopener">GitHub ↗</a>
+        </div>
+      </div>
+
+      <!-- Admin Dashboard -->
+      <div class="project-card reveal">
+        <div class="project-num">03</div>
         <div class="project-title">Next.js Admin Dashboard</div>
         <div class="project-desc">
           SSR/ISR dashboard with role-based access control. Achieved Lighthouse 95+ and 1.9s LCP. Full Cypress e2e coverage for all critical user paths.
         </div>
         <div class="project-stack">
           <span>Next.js</span><span>TypeScript</span><span>Redux Toolkit</span><span>Auth0</span><span>GraphQL</span>
-        </div>
-        <div class="project-links">
-          <a class="project-link" href="https://github.com/Mithun-Srinivasa" target="_blank" rel="noopener">GitHub ↗</a>
-        </div>
-      </div>
-
-      <div class="project-card reveal">
-        <div class="project-num">03</div>
-        <div class="project-title">AI Storytelling App</div>
-        <div class="project-desc">
-          React Native app generating personalized children's stories with response caching, parental controls, deep-linked shareable stories, and OTA rollouts via CodePush.
-        </div>
-        <div class="project-stack">
-          <span>React Native</span><span>TypeScript</span><span>Firebase</span><span>GPT API</span><span>CodePush</span>
         </div>
         <div class="project-links">
           <a class="project-link" href="https://github.com/Mithun-Srinivasa" target="_blank" rel="noopener">GitHub ↗</a>
@@ -845,12 +851,8 @@
       <p class="contact-sub">Open to full-time frontend and full-stack roles. Let's talk.</p>
       <a class="contact-email" id="contactEmail" href="#">mithunsrinivasa&#64;gmail.com</a>
       <div class="social-links">
-        <a class="social-link" href="https://linkedin.com/in/mithun-srinivasa-455995316" target="_blank" rel="noopener">
-          LinkedIn ↗
-        </a>
-        <a class="social-link" href="https://github.com/Mithun-Srinivasa" target="_blank" rel="noopener">
-          GitHub ↗
-        </a>
+        <a class="social-link" href="https://linkedin.com/in/mithun-srinivasa-455995316" target="_blank" rel="noopener">LinkedIn ↗</a>
+        <a class="social-link" href="https://github.com/Mithun-Srinivasa" target="_blank" rel="noopener">GitHub ↗</a>
       </div>
     </div>
   </div>
@@ -862,7 +864,6 @@
 </footer>
 
 <script>
-  // Email assembly - obfuscated from scrapers
   (function() {
     var u = 'mithunsrinivasa';
     var d = 'gmail.com';
@@ -874,7 +875,6 @@
     if (hero) { hero.href = m; }
   })();
 
-  // Custom cursor
   var cursor = document.getElementById('cursor');
   var ring = document.getElementById('cursorRing');
   var mx = 0, my = 0, rx = 0, ry = 0;
@@ -890,13 +890,11 @@
   }
   animateRing();
 
-  // Nav scroll
   var nav = document.getElementById('nav');
   window.addEventListener('scroll', function() {
     nav.classList.toggle('scrolled', window.scrollY > 40);
   });
 
-  // Reveal on scroll
   var reveals = document.querySelectorAll('.reveal');
   var observer = new IntersectionObserver(function(entries) {
     entries.forEach(function(entry) {
