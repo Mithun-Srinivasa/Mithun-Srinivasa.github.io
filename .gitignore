@@ -1,0 +1,16 @@
+# Old / Alternative Portfolio Versions
+index2.html
+legacy_portfolio.html
+
+# Documentation & Assets
+PORTFOLIO_README.md
+Solarized_Botanical_1.md
+
+# Temporary Build Files
+inline-css.js
+node_modules/
+package.json
+package-lock.json
+tailwind.config.js
+input.css
+styles.css
